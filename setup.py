@@ -35,6 +35,9 @@ extras_require = {
     'docs': [
         "Sphinx>=1.3",
     ],
+    'jsonref': [
+        'jsonref>=0.1',
+    ],
     'jsonschema': [
         'jsonschema>=2.5.1',
     ],

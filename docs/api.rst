@@ -26,3 +26,9 @@ JSONSchema
 
 .. automodule:: jsonresolver.contrib.jsonschema
    :members:
+
+JSONRef
+~~~~~~~
+
+.. automodule:: jsonresolver.contrib.jsonref
+   :members:
