@@ -9,8 +9,20 @@
 API Docs
 ========
 
-jsonresolver
+JSONResolver
 ------------
 
 .. automodule:: jsonresolver.core
+   :members:
+
+
+Contrib
+-------
+
+.. automodule:: jsonresolver.contrib
+
+JSONSchema
+~~~~~~~~~~
+
+.. automodule:: jsonresolver.contrib.jsonschema
    :members:

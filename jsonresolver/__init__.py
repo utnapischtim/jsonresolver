@@ -11,13 +11,13 @@
 
 from __future__ import absolute_import
 
-from .core import JsonResolver
+from .core import JSONResolver
 from .decorators import route
 from .hookimpl import hookimpl
 from .version import __version__
 
 __all__ = (
-    'JsonResolver',
+    'JSONResolver',
     'hookimpl',
     'route',
     '__version__',

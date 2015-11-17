@@ -20,7 +20,7 @@ from werkzeug.routing import Map
 from . import hookspec
 
 
-class JsonResolver(object):
+class JSONResolver(object):
     """Resolve JSON objects based on rules in URL map."""
 
     def __init__(self, plugins=None, entry_point_group=None):

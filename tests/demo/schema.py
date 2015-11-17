@@ -10,6 +10,7 @@
 import jsonresolver
 
 
-@jsonresolver.route('/test', host='http://localhost:4000')
-def simple():
-    return {'test': 'test'}
+@jsonresolver.route('/schema/<path:name>', host='http://localhost:4000')
+def schema(name):
+    assert name == 'authors.json'
+    return {'type': 'array'}

@@ -17,6 +17,8 @@ import pytest
 from mock import patch
 from pkg_resources import EntryPoint
 
+from jsonresolver import JSONResolver
+
 
 class MockEntryPoint(EntryPoint):
     def load(self):
@@ -43,12 +45,10 @@ def _mock_entry_points(name):
 
 @patch('pkg_resources.iter_entry_points', _mock_entry_points)
 def test_entry_point_group():
-    from jsonresolver import JsonResolver
-    resolver = JsonResolver(entry_point_group='espresso')
+    resolver = JSONResolver(entry_point_group='espresso')
     assert resolver.resolve('http://localhost:4000/test') == {'test': 'test'}
 
 
 def test_plugins():
-    from jsonresolver import JsonResolver
-    resolver = JsonResolver(plugins=['demo.simple'])
+    resolver = JSONResolver(plugins=['demo.simple'])
     assert resolver.resolve('http://localhost:4000/test') == {'test': 'test'}

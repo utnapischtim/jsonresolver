@@ -30,5 +30,5 @@ JSON data resolver with support for plugins.
 
 *This is an experimental developer preview release.*
 
-* Free software: GPLv2 license
+* Free software: BSD license
 * Documentation: https://pythonhosted.org/jsonresolver/
