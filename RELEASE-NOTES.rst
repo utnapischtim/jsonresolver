@@ -2,7 +2,7 @@
  JSONResolver v0.1.0
 =====================
 
-JSONResolver v0.1.0 was released on TBD, 2015.
+JSONResolver v0.1.0 was released on November 18, 2015.
 
 About
 -----
