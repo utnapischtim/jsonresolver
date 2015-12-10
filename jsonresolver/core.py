@@ -33,8 +33,7 @@ class JSONResolver(object):
             )
         if entry_point_group:
             self.pm.load_setuptools_entrypoints(entry_point_group)
-
-        self._build_url_map()
+        self.url_map = None
 
     def _build_url_map(self):
         """Build an URL map from registered plugins."""
@@ -43,6 +42,8 @@ class JSONResolver(object):
 
     def resolve(self, url):
         """Resolve given URL and use regitered loader."""
+        if self.url_map is None:
+            self._build_url_map()
         parts = urlsplit(url)
         loader, args = self.url_map.bind(parts.hostname).match(parts.path)
         return loader(**args)

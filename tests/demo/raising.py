@@ -7,12 +7,16 @@
 # modify it under the terms of the Revised BSD License; see LICENSE
 # file for more details.
 
-"""Test plugin for JSON resolving using ``jsonresolver.route`` decorator."""
+"""Test for detecting the lazy evaluation of decorated JSON resolver."""
 
 import jsonresolver
 
 
+class EndpointCallDetected(Exception):
+    """Raise this ``exception`` to detect when a plugin is called in test."""
+
+
 @jsonresolver.route('/test', host='http://localhost:4000')
-def simple():
-    """Return a fixed JSON."""
-    return {'test': 'test'}
+def raising():
+    """Raise an exception."""
+    raise EndpointCallDetected

@@ -11,8 +11,8 @@
 
 from __future__ import absolute_import
 
-from jsonref import JsonRef, JsonRefError
 import pytest
+from jsonref import JsonRef, JsonRefError
 
 from jsonresolver import JSONResolver
 from jsonresolver.contrib.jsonref import json_loader_factory

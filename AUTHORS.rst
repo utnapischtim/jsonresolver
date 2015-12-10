@@ -12,3 +12,4 @@ Authors
 JSON data resolver with support for plugins.
 
 - Jiri Kuncar <jiri.kuncar@cern.ch>
+- Krzysztof Nowak <k.nowak@cern.ch>

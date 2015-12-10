@@ -11,8 +11,8 @@
 
 from __future__ import absolute_import
 
-from jsonschema import RefResolutionError, validate
 import pytest
+from jsonschema import RefResolutionError, validate
 
 from jsonresolver import JSONResolver
 from jsonresolver.contrib.jsonschema import ref_resolver_factory
