@@ -9,6 +9,14 @@
 Changes
 =======
 
+Version 0.1.1 (released 2015-12-11)
+-----------------------------------
+
+Improved features
+~~~~~~~~~~~~~~~~~
+
+- Delays the url_map building until first resolve request.
+
 Version 0.1.0 (released 2015-11-18)
 -----------------------------------
 

@@ -1,8 +1,8 @@
 =====================
- JSONResolver v0.1.0
+ JSONResolver v0.1.1
 =====================
 
-JSONResolver v0.1.0 was released on November 18, 2015.
+JSONResolver v0.1.1 was released on December 11, 2015.
 
 About
 -----
@@ -16,10 +16,15 @@ What's new
 
 - Initial public release.
 
+Improved features
+-----------------
+
+- Delays the url_map building until first resolve request.
+
 Installation
 ------------
 
-   $ pip install jsonresolver==0.1.0
+   $ pip install jsonresolver==0.1.1
 
 Documentation
 -------------
