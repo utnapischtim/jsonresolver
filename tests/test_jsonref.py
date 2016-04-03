@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of jsonresolver
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # jsonresolver is free software; you can redistribute it and/or
 # modify it under the terms of the Revised BSD License; see LICENSE
@@ -53,3 +53,18 @@ def test_missing_route():
     data = JsonRef.replace_refs(example_schema, loader=loader)
     with pytest.raises(JsonRefError):
         data['properties']['authors']['type']
+
+
+def test_same_route_different_hosts():
+    """Test orignal resolver."""
+    example = {
+        'host1': {'$ref': 'http://localhost:4000/test'},
+        'host2': {'$ref': 'http://inveniosoftware.org/test'},
+    }
+
+    json_resolver = JSONResolver(plugins=['demo.simple', 'demo.hosts'])
+    loader_cls = json_loader_factory(json_resolver)
+    loader = loader_cls()
+    data = JsonRef.replace_refs(example, loader=loader)
+    assert data['host1']['test'] == 'test'
+    assert data['host2']['test'] == 'inveniosoftware.org'

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of jsonresolver
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # jsonresolver is free software; you can redistribute it and/or modify
 # it under the terms of the Revised BSD License; see LICENSE file for
@@ -37,7 +37,7 @@ class JSONResolver(object):
 
     def _build_url_map(self):
         """Build an URL map from registered plugins."""
-        self.url_map = Map()
+        self.url_map = Map(host_matching=True)
         self.pm.hook.jsonresolver_loader(url_map=self.url_map)
 
     def resolve(self, url):
@@ -45,5 +45,5 @@ class JSONResolver(object):
         if self.url_map is None:
             self._build_url_map()
         parts = urlsplit(url)
-        loader, args = self.url_map.bind(parts.hostname).match(parts.path)
+        loader, args = self.url_map.bind(parts.netloc).match(parts.path)
         return loader(**args)

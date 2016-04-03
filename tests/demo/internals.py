@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of jsonresolver
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # jsonresolver is free software; you can redistribute it and/or
 # modify it under the terms of the Revised BSD License; see LICENSE
@@ -24,5 +24,5 @@ def jsonresolver_loader(url_map):
         ).json
 
     url_map.add(
-        Rule('/record/<recid>', endpoint=endpoint, host='http://cds.cern.ch')
+        Rule('/record/<recid>', endpoint=endpoint, host='cds.cern.ch')
     )
