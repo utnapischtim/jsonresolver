@@ -1,6 +1,6 @@
 ..
     This file is part of jsonresolver
-    Copyright (C) 2015 CERN.
+    Copyright (C) 2015, 2016 CERN.
 
     jsonresolver is free software; you can redistribute it and/or modify
     it under the terms of the Revised BSD License; see LICENSE file for
@@ -8,6 +8,17 @@
 
 Changes
 =======
+
+Version 0.2.0 (released 2016-04-06)
+-----------------------------------
+
+- Fixes issues with the hostname not being matched resulting in the
+  same route on two hosts not to work.
+
+Incompatible changes
+~~~~~~~~~~~~~~~~~~~~
+
+- Changes resolving to be based on hostname without 'http://' prefix.
 
 Version 0.1.1 (released 2015-12-11)
 -----------------------------------
