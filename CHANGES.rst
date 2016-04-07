@@ -12,13 +12,16 @@ Changes
 Version 0.2.0 (released 2016-04-06)
 -----------------------------------
 
-- Fixes issues with the hostname not being matched resulting in the
-  same route on two hosts not to work.
-
 Incompatible changes
 ~~~~~~~~~~~~~~~~~~~~
 
 - Changes resolving to be based on hostname without 'http://' prefix.
+
+Bug fixes
+~~~~~~~~~
+
+- Fixes issues with the hostname not being matched resulting in the
+  same route on two hosts not to work.
 
 Version 0.1.1 (released 2015-12-11)
 -----------------------------------

@@ -11,16 +11,16 @@ JSON data resolver with support for plugins.
 
 *This is an experimental developer preview release.*
 
-What's new
-----------
-
-- Fixes issues with the hostname not being matched resulting in the
-  same route on two hosts not to work.
-
 Incompatible changes
 --------------------
 
-- Changes resolving to be based on hostname without 'http://' prefix.
+- Changes resolving to be based on hostname without http:// prefix.
+
+Bug fixes
+---------
+
+- Fixes issues with the hostname not being matched resulting in the
+  same route on two hosts not to work.
 
 Installation
 ------------
