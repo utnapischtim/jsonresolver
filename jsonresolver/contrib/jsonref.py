@@ -35,6 +35,7 @@ Example:
 from __future__ import absolute_import
 
 from jsonref import JsonLoader as _JsonLoader
+from werkzeug.exceptions import NotFound
 
 
 def json_loader_factory(resolver):
@@ -46,7 +47,7 @@ def json_loader_factory(resolver):
             """Resolve remove uri using given resolver."""
             try:
                 return resolver.resolve(uri)
-            except Exception:
+            except NotFound:
                 return super(JsonLoader, self).get_remote_json(uri, **kwargs)
 
     return JsonLoader

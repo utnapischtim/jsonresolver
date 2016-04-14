@@ -32,6 +32,7 @@ Example:
 from __future__ import absolute_import
 
 from jsonschema import RefResolver as _RefResolver
+from werkzeug.exceptions import NotFound
 
 
 def ref_resolver_factory(resolver):
@@ -46,7 +47,7 @@ def ref_resolver_factory(resolver):
                 if self.cache_remote:
                     self.store[uri] = result
                 return result
-            except Exception:
+            except NotFound:
                 return super(RefResolver, self).resolve_remote(uri)
 
     return RefResolver
