@@ -1,31 +1,24 @@
 =====================
- JSONResolver v0.2.0
+ JSONResolver v0.2.1
 =====================
 
-JSONResolver v0.2.0 was released on April 6, 2016.
+JSONResolver v0.2.1 was released on April 15, 2016.
 
 About
 -----
 
 JSON data resolver with support for plugins.
 
-*This is an experimental developer preview release.*
-
-Incompatible changes
---------------------
-
-- Changes resolving to be based on hostname without http:// prefix.
-
 Bug fixes
 ---------
 
-- Fixes issues with the hostname not being matched resulting in the
-  same route on two hosts not to work.
+- Fixes issue with exceptions raised during e.g. resolver plugin
+  loading being caught and not propagated.
 
 Installation
 ------------
 
-   $ pip install jsonresolver==0.2.0
+   $ pip install jsonresolver==0.2.1
 
 Documentation
 -------------

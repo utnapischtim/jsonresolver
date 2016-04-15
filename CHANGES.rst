@@ -9,6 +9,15 @@
 Changes
 =======
 
+Version 0.2.1 (released 2016-04-15)
+-----------------------------------
+
+Bug fixes
+~~~~~~~~~
+
+- Fixes issue with exceptions raised during e.g. resolver plugin
+  loading being caught and not propagated.
+
 Version 0.2.0 (released 2016-04-06)
 -----------------------------------
 
