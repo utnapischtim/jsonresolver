@@ -32,7 +32,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        "Sphinx>=1.3",
+        "Sphinx>=1.4.2",
     ],
     'jsonref': [
         'jsonref>=0.1',
