@@ -75,7 +75,7 @@ setup(
     url='https://github.com/inveniosoftware/jsonresolver',
     license='BSD',
     author='Invenio collaboration',
-    author_email='info@invenio-software.org',
+    author_email='info@inveniosoftware.org',
     packages=packages,
     zip_safe=False,
     include_package_data=True,

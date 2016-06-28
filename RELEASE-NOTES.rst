@@ -28,8 +28,8 @@ Documentation
 Happy hacking and thanks for flying JSONResolver.
 
 | Invenio Development Team
-|   Email: info@invenio-software.org
+|   Email: info@inveniosoftware.org
 |   IRC: #invenio on irc.freenode.net
 |   Twitter: http://twitter.com/inveniosoftware
 |   GitHub: https://github.com/inveniosoftware/jsonresolver
-|   URL: http://invenio-software.org
+|   URL: http://inveniosoftware.org
