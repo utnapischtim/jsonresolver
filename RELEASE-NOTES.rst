@@ -23,7 +23,7 @@ Installation
 Documentation
 -------------
 
-   http://pythonhosted.org/jsonresolver/
+   http://jsonresolver.readthedocs.io/
 
 Happy hacking and thanks for flying JSONResolver.
 
