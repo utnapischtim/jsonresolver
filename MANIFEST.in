@@ -20,5 +20,7 @@ include *.ini
 include *.rst
 include *.sh
 include *.txt
+include .lgtm
 include LICENSE
+include MAINTAINERS
 global-exclude *.py[cod] __pycache__ *.so
