@@ -14,18 +14,17 @@ implementation of remote URL resolver. The resolver is used to retrieve JSON
 object based on registered plugins.
 
 Example:
-
 .. code-block:: python
 
    >>> from jsonschema import validate
    >>> from jsonresolver import JSONResolver
    >>> from jsonresolver.contrib.jsonschema import ref_resolver_factory
    >>> schema = {'$ref': 'http://localhost:4000/schema/authors.json#'}
-   >>> json_resolver = JSONResolver(plugins=['demo.schema'])
+   >>> json_resolver = JSONResolver(plugins=['tests.demo.schema'])
    >>> resolver_cls = ref_resolver_factory(json_resolver)
    >>> resolver = resolver_cls.from_schema(schema)
    >>> validate(['foo', 'bar'], schema, resolver=resolver)
-   None
+
 
 """
 

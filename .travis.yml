@@ -10,8 +10,6 @@
 notifications:
   email: false
 
-sudo: false
-
 language: python
 
 cache:
@@ -23,10 +21,9 @@ env:
   - REQUIREMENTS=devel
 
 python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
   - "3.5"
+  - "3.6"
+  - "3.7"
 
 before_install:
   - "travis_retry pip install --upgrade pip setuptools py"
@@ -51,7 +48,8 @@ deploy:
   password:
     secure: xS0SP3ODUsZuz+Gz14fzQPLPBGlCYUChQa1idShx/ztfVdl0GKDTfzclmHooRHIeIt9gpz3zLGQ6phyXe+TQYzqITTI6kfp/Lx42jF2e/bY0miVw5g1sTSEipcvuVqJiE4UmPolhvU/j4Kzq4PUus3gURpzypIXqEJznUPW2ypfyBsVVBL77gUZ9kFIeMr+5QUQ0Ss+z//gLuRXoZZJckX4f5Du83NE+e5w/ZuzArFk1EOzH1637O/ZZr885XPAiOcBZRIJ8Xoj/HSetNMNRW5vXfYRkJKIB10rnV6QsaF5/PJyxw+6vLfBPhTwYVkIKHc0rQkbL2uoAYym+fHG3aIrKm0EBaFZODIRsyPbTOAFaO9r1baCi/Hgrwvon8kEQwlq2TRsGzGZ4BBAk1NYur9gTc3W2a5S1Ax2hpzGO5P4KXhelWQ0KHf3oALaG3zPptJu7DLXSBgDpJbpKGN7edDclsZF825kQwvNu/4g6QLCtjqtu2IDfdVTl4gd4e15WfpSD+5znb26QKbaM4pGn6pFHVlQzA5TXaM9WdSxmu3DxKbvDG6X1vp0tl1/qiOIyCuz0kBxCSrqnuAeFfPvVbSJyoiRP26PrivusEA1ghDZ7+u7cGZsAamCG2197PwFAE5g6O7jCBKBclES2dy6BIabTVR7z/Wr5vkCMgXwGzo4=
   distributions: "sdist bdist_wheel"
+  skip_existing: true
   on:
-    python: "2.7"
+    python: "3.6"
     repo: inveniosoftware/jsonresolver
     tags: true

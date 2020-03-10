@@ -24,15 +24,15 @@ tests_require = [
     'mock>=1.3.0',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
-    'pytest-cov>=1.8.0',
+    'pytest-cov>=2.8.1',
     'pytest-pep8>=1.0.6',
-    'pytest>=2.8.0',
+    'pytest>=3.6.0',
     'requests>=2.7.0',
 ]
 
 extras_require = {
     'docs': [
-        "Sphinx>=1.4.2",
+        "Sphinx>=1.5.1",
     ],
     'jsonref': [
         'jsonref>=0.1',
@@ -52,9 +52,9 @@ setup_requires = [
 ]
 
 install_requires = [
-    'six>=1.8.0',
-    'pluggy>=0.3.0,<1.0',
-    'werkzeug>=0.10.4',
+    'six>=1.12.0',
+    'pluggy>=0.10.0,<1.0',
+    'werkzeug>=1.0.0',
 ]
 
 packages = find_packages()

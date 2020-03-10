@@ -14,18 +14,18 @@ Use ``json_loader_factory`` if you want to take advantage of default
 by your ``JSONResolver`` instance.
 
 Example:
-
 .. code-block:: python
 
    >>> from jsonref import JsonRef
    >>> from jsonresolver import JSONResolver
    >>> from jsonresolver.contrib.jsonref import json_loader_factory
    >>> schema = {'$ref': 'http://localhost:4000/schema/authors.json#'}
-   >>> json_resolver = JSONResolver(plugins=['demo.schema'])
+   >>> json_resolver = JSONResolver(plugins=['tests.demo.schema'])
    >>> loader_cls = json_loader_factory(json_resolver)
    >>> loader = loader_cls(cache_results=False)
    >>> dict(JsonRef.replace_refs(schema, loader=loader))
    {'type': 'array'}
+
    # if you do not want default fallback:
    >>> dict(JsonRef.replace_refs(schema, loader=json_resolver.resolve))
    {'type': 'array'}
