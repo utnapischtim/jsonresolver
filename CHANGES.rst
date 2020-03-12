@@ -9,6 +9,14 @@
 Changes
 =======
 
+Version 0.3.0 (released 2020-03-12)
+-----------------------------------
+
+- Drops support for Python 2.7
+- Updates testing method
+- Updates python dependencies
+
+
 Version 0.2.1 (released 2016-04-15)
 -----------------------------------
 
