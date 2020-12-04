@@ -9,8 +9,7 @@
 
 
 pydocstyle jsonresolver && \
-isort -rc -c -df **/*.py && \
-check-manifest --ignore ".travis-*" && \
+check-manifest --ignore ".*-requirements.txt" && \
 sphinx-build -qnNW docs docs/_build/html && \
 python tests/setup.py test && \
 sphinx-build -qnNW -b doctest docs docs/_build/doctest
