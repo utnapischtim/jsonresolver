@@ -25,12 +25,10 @@ class JSONResolver(object):
 
     def __init__(self, plugins=None, entry_point_group=None):
         """Initialize resolver with various plugins and entry point group."""
-        self.pm = pluggy.PluginManager('jsonresolver')
+        self.pm = pluggy.PluginManager("jsonresolver")
         self.pm.add_hookspecs(hookspec)
         for plugin in plugins or []:
-            self.pm.register(
-                importlib.import_module(plugin)
-            )
+            self.pm.register(importlib.import_module(plugin))
         if entry_point_group:
             self.pm.load_setuptools_entrypoints(entry_point_group)
         self.url_map = None

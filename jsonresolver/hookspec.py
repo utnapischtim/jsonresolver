@@ -11,7 +11,7 @@
 
 import pluggy
 
-hookspec = pluggy.HookspecMarker('jsonresolver')
+hookspec = pluggy.HookspecMarker("jsonresolver")
 
 
 @hookspec

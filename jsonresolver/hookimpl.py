@@ -11,4 +11,4 @@
 
 import pluggy
 
-hookimpl = pluggy.HookimplMarker('jsonresolver')
+hookimpl = pluggy.HookimplMarker("jsonresolver")
