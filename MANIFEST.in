@@ -25,3 +25,4 @@ include LICENSE
 include MAINTAINERS
 global-exclude *.py[cod] __pycache__ *.so
 recursive-include .github/workflows *.yml
+include .git-blame-ignore-revs
