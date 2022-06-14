@@ -40,6 +40,7 @@ from werkzeug.exceptions import NotFound
 
 def json_loader_factory(resolver):
     """Generate new ``JsonLoader`` class that uses given resolver."""
+
     class JsonLoader(_JsonLoader):
         """Implement custom remote reference resolver."""
 

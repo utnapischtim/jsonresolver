@@ -20,41 +20,41 @@ from jsonresolver import JSONResolver
 
 def test_entry_point_group():
     """Test the entry point group loading."""
-    resolver = JSONResolver(entry_point_group='espresso')
-    assert resolver.resolve('http://localhost:4000/test') == {'test': 'test'}
+    resolver = JSONResolver(entry_point_group="espresso")
+    assert resolver.resolve("http://localhost:4000/test") == {"test": "test"}
 
 
 def test_plugins():
     """Test the plugins loading."""
-    resolver = JSONResolver(plugins=['demo.simple'])
-    assert resolver.resolve('http://localhost:4000/test') == {'test': 'test'}
+    resolver = JSONResolver(plugins=["demo.simple"])
+    assert resolver.resolve("http://localhost:4000/test") == {"test": "test"}
 
 
 def test_plugin_lazy_execution():
     """Test the lazy evaluation of loaded plugin."""
     # Plugin code should be called (i.e. raise exception) on resolve method
-    resolver = JSONResolver(plugins=['demo.raising'])
+    resolver = JSONResolver(plugins=["demo.raising"])
     with pytest.raises(EndpointCallDetected) as exc_info:
-        resolver.resolve('http://localhost:4000/test')
+        resolver.resolve("http://localhost:4000/test")
     assert exc_info.type is EndpointCallDetected
 
     # Same as above but loaded using entry point
-    resolver = JSONResolver(entry_point_group='raising')
+    resolver = JSONResolver(entry_point_group="raising")
     with pytest.raises(EndpointCallDetected) as exc_info:
-        resolver.resolve('http://localhost:4000/test')
+        resolver.resolve("http://localhost:4000/test")
     assert exc_info.type is EndpointCallDetected
 
 
 def test_plugin_lazy_execution_hooks():
     """Test the lazy evaluation of loaded plugin through hooks."""
     # Plugin code should be called (i.e. raise exception) on resolve method
-    resolver = JSONResolver(plugins=['demo.raising_hook'])
+    resolver = JSONResolver(plugins=["demo.raising_hook"])
     with pytest.raises(HookRegistrationDetected) as exc_info:
-        resolver.resolve('http://localhost:4000/test')
+        resolver.resolve("http://localhost:4000/test")
     assert exc_info.type is HookRegistrationDetected
 
     # Same as above but loaded using entry point
-    resolver = JSONResolver(entry_point_group='raising_hook')
+    resolver = JSONResolver(entry_point_group="raising_hook")
     with pytest.raises(HookRegistrationDetected) as exc_info:
-        resolver.resolve('http://localhost:4000/test')
+        resolver.resolve("http://localhost:4000/test")
     assert exc_info.type is HookRegistrationDetected

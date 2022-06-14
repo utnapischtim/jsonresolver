@@ -12,8 +12,8 @@
 import jsonresolver
 
 
-@jsonresolver.route('/schema/<path:name>', host='localhost:4000')
+@jsonresolver.route("/schema/<path:name>", host="localhost:4000")
 def schema(name):
     """Return a fixed JSON ``schema``."""
-    assert name == 'authors.json'
-    return {'type': 'array'}
+    assert name == "authors.json"
+    return {"type": "array"}

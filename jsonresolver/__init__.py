@@ -18,8 +18,8 @@ from .hookimpl import hookimpl
 __version__ = "0.3.1"
 
 __all__ = (
-    'JSONResolver',
-    'hookimpl',
-    'route',
-    '__version__',
+    "JSONResolver",
+    "hookimpl",
+    "route",
+    "__version__",
 )

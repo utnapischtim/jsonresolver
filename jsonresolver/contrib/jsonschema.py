@@ -36,6 +36,7 @@ from werkzeug.exceptions import NotFound
 
 def ref_resolver_factory(resolver):
     """Generate new RefResolver class that uses given resolver."""
+
     class RefResolver(_RefResolver):
         """Implement custom remote URL resolver."""
 

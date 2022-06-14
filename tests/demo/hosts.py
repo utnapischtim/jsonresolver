@@ -12,7 +12,7 @@
 import jsonresolver
 
 
-@jsonresolver.route('/test', host='inveniosoftware.org')
+@jsonresolver.route("/test", host="inveniosoftware.org")
 def sameroute_as_simple():
     """Return a fixed JSON."""
-    return {'test': 'inveniosoftware.org'}
+    return {"test": "inveniosoftware.org"}

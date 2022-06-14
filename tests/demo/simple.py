@@ -12,7 +12,7 @@
 import jsonresolver
 
 
-@jsonresolver.route('/test', host='localhost:4000')
+@jsonresolver.route("/test", host="localhost:4000")
 def simple():
     """Return a fixed JSON."""
-    return {'test': 'test'}
+    return {"test": "test"}

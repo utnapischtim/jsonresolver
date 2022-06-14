@@ -16,7 +16,7 @@ class EndpointCallDetected(Exception):
     """Raise this ``exception`` to detect when a plugin is called in test."""
 
 
-@jsonresolver.route('/test', host='localhost:4000')
+@jsonresolver.route("/test", host="localhost:4000")
 def raising():
     """Raise an exception."""
     raise EndpointCallDetected
