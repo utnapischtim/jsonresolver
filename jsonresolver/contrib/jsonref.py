@@ -31,9 +31,81 @@ Example:
    {'type': 'array'}
 
 """
+from collections.abc import MutableMapping
+from urllib import parse as urlparse
 
-from jsonref import JsonLoader as _JsonLoader
 from werkzeug.exceptions import NotFound
+
+
+class _URIDict(MutableMapping):
+    """Dictionary which uses normalized URIs as keys."""
+
+    def normalize(self, uri):
+        """Normalize."""
+        return urlparse.urlsplit(uri).geturl()
+
+    def __init__(self, *args, **kwargs):
+        """Construct."""
+        self.store = dict()
+        self.store.update(*args, **kwargs)
+
+    def __getitem__(self, uri):
+        """GetItem."""
+        return self.store[self.normalize(uri)]
+
+    def __setitem__(self, uri, value):
+        """SetItem."""
+        self.store[self.normalize(uri)] = value
+
+    def __delitem__(self, uri):
+        """DelItem."""
+        del self.store[self.normalize(uri)]
+
+    def __iter__(self):
+        """Iterate."""
+        return iter(self.store)
+
+    def __len__(self):
+        """Len."""
+        return len(self.store)
+
+    def __repr__(self):
+        """Repr."""
+        return repr(self.store)
+
+
+class _JsonLoader:
+    """Provides a callable.
+
+    This means it takes a URI, and returns the loaded JSON referred
+    to by that URI. Uses :mod:`requests` if available for HTTP URIs, and falls
+    back to :mod:`urllib`. By default it keeps a cache of previously loaded
+    documents.
+
+    :param store: A pre-populated dictionary matching URIs to loaded JSON
+        documents
+    :param cache_results: If this is set to false, the internal cache of
+        loaded JSON documents is not used
+    """
+
+    def __init__(self, store=(), cache_results=True):
+        """Construct."""
+        self.store = _URIDict(store)
+        self.cache_results = cache_results
+
+    def __call__(self, uri, **kwargs):
+        """Return the loaded JSON referred to by `uri`.
+
+        :param uri: The URI of the JSON document to load
+        :param kwargs: Keyword arguments passed to :func:`json.loads`
+        """
+        if uri in self.store:
+            return self.store[uri]
+        else:
+            result = self.get_remote_json(uri, **kwargs)
+            if self.cache_results:
+                self.store[uri] = result
+            return result
 
 
 def json_loader_factory(resolver):
