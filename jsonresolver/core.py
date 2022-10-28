@@ -9,8 +9,6 @@
 
 """Resolve JSON objects from different URLs."""
 
-from __future__ import absolute_import
-
 import importlib
 
 import pluggy
