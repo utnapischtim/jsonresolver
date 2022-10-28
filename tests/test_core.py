@@ -9,6 +9,7 @@
 
 """Define unit tests to test core functionality."""
 
+
 import pytest
 from demo.raising import EndpointCallDetected
 from demo.raising_hook import HookRegistrationDetected
