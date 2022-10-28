@@ -10,9 +10,9 @@
 """Resolve JSON objects from different URLs."""
 
 import importlib
+from urllib.parse import urlsplit
 
 import pluggy
-from six.moves.urllib.parse import urlsplit
 from werkzeug.routing import Map
 
 from . import hookspec
