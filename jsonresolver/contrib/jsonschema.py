@@ -46,6 +46,6 @@ def ref_resolver_factory(resolver):
                     self.store[uri] = result
                 return result
             except NotFound:
-                return super(RefResolver, self).resolve_remote(uri)
+                return super().resolve_remote(uri)
 
     return RefResolver

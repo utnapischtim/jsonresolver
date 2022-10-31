@@ -29,10 +29,24 @@ Example:
    # if you do not want default fallback:
    >>> dict(replace_refs(schema, loader=json_resolver.resolve))
    {'type': 'array'}
-
 """
+
+import json
+import warnings
+from urllib import parse as urlparse
+from urllib.request import urlopen
+
 from jsonref import URIDict
 from werkzeug.exceptions import NotFound
+
+try:
+    # If requests >=1.0 is available, we will use it
+    import requests
+
+    if not callable(requests.Response.json):
+        requests = None
+except ImportError:
+    requests = None
 
 
 class _JsonLoader:
@@ -42,6 +56,8 @@ class _JsonLoader:
     to by that URI. Uses :mod:`requests` if available for HTTP URIs, and falls
     back to :mod:`urllib`. By default it keeps a cache of previously loaded
     documents.
+
+    See: https://github.com/gazpachoking/jsonref/pull/43
 
     :param store: A pre-populated dictionary matching URIs to loaded JSON
         documents
@@ -68,6 +84,33 @@ class _JsonLoader:
                 self.store[uri] = result
             return result
 
+    def get_remote_json(self, uri, **kwargs):
+        """Get remote json.
+
+        Provides a callable which takes a URI, and returns the loaded JSON referred
+        to by that URI. Uses :mod:`requests` if available for HTTP URIs, and falls
+        back to :mod:`urllib`.
+        """
+        scheme = urlparse.urlsplit(uri).scheme
+
+        if scheme in ["http", "https"] and requests:
+            # Prefer requests, it has better encoding detection
+            resp = requests.get(uri)
+            # If the http server doesn't respond normally then raise exception
+            # e.g. 404, 500 error
+            resp.raise_for_status()
+            try:
+                result = resp.json(**kwargs)
+            except TypeError:
+                warnings.warn("requests >=1.2 required for custom kwargs to json.loads")
+                result = resp.json()
+        else:
+            # Otherwise, pass off to urllib and assume utf-8
+            with urlopen(uri) as content:
+                result = json.loads(content.read().decode("utf-8"), **kwargs)
+
+        return result
+
 
 def json_loader_factory(resolver):
     """Generate new ``JsonLoader`` class that uses given resolver."""
@@ -80,6 +123,6 @@ def json_loader_factory(resolver):
             try:
                 return resolver.resolve(uri)
             except NotFound:
-                return super(JsonLoader, self).get_remote_json(uri, **kwargs)
+                return super().get_remote_json(uri, **kwargs)
 
     return JsonLoader
